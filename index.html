@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<!-- Start of User input fieldset code-->
+        <form id="Form">
+            <fieldset  id="fieldinput">
+                <legend>Sign Up</legend>
+                
+<!--"this" in check(this) and uncheck(this) is a global object basically it is check the thing it is in-->
+
+    <label for="fullname">Full Name:</label>    
+    <input type="text" id="name" name="Fullname"  required onblur="check(this)" onfocus="uncheck(this)"><br/>
+              
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="Username"  required onblur="check(this)" onfocus="uncheck(this)"><br/>
+  
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="Email" required onblur="check(this)" onfocus="uncheck(this)"><br/>
+    
+    <label for="address">Address:</label>
+    <input type="text" name="Address" required onblur="check(this)" onfocus="uncheck(this)"><br/>
+           
+    <label for="password">Password</label>
+    <input type="password" id="password" name="Password"  required onblur="check(this)" onfocus="uncheck(this)"><br/>
+                       
+                        
+<!-- Selected disabled hidden allows us to have a label for the select instead of it being the first option value showing-->
+    <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required onblur="check(this)" onfocus="uncheck(this)">
+            <option value="" selected disabled hidden>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer not to mention">Prefer not to mention</option>
+                 </select> <br/>
+             
+    <label for="interests">Interests:</label><br/>
+    <textarea id="interests" name="Interests" required onblur="check(this)" onfocus="uncheck(this)"></textarea>
+    <br/>
+
+<!-- button code-->
+    <button type="submit" value="Submit">Submit</button>
+    <button type="reset" value="Reset" onclick="reset()">Reset</button>
+<!-- end of button code-->
+    </fieldset>
+<!-- End of User input fieldset code-->
+
+
+<!-- Start of Information fieldset code-->
+    <fieldset id="fieldinfo">
+        <legend>Information</legend>    
+        <div id="info"></div>
+    </fieldset>
+</form>
+<!-- End of Information fieldset code-->
+
+<script>
+      
+//function that checks if user has entered input and make border green if there is input and red if not		
+	function check(input) {
+		if (input.value == "") {
+			input.style.border = "thin solid red";
+		}
+		}
+	function uncheck(input) {
+		input.style.border = "thin solid green";
+		}
+//end of function that checks if user has entered input and make border green if there is input and red if not		
+
+//set of code to output
+		document.getElementById("Form").addEventListener("submit", function(event) {
+
+//makes all input(user input in the input, select and text area) into one variable using querySelectorAll. 
+//querySelectorAll returns all elements that is inside the parameter
+        var login = document.querySelectorAll("input, select, textarea");
+
+        var info = document.getElementById("info");
+        info.innerHTML = "";
+
+    //this prevents the page from reseting cuz it happens idk why but fixed when added this 
+        event.preventDefault();
+       
+    //like in the plus points activity, determine by login length to check each input and display each one 
+        for (var x = 0; x < login.length; x++) {
+        info.innerHTML = info.innerHTML+  login[x].name + ": " + login[x].value + "<br>";
+        
+        } } );
+    
+//end of set of code for output
+
+//reset button
+	function reset() {
+		var info = document.getElementById("info");
+		info.innerHTML = " ";
+        
+		}
+//end of reset button
+</script>
+</body>
+</html>

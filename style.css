@@ -1,0 +1,56 @@
+body{
+    background-image:url(images/jellyfish.jpeg);
+    background-size: cover;
+}
+textarea{
+    resize: none;
+    width: 250px;
+    height: 100px;
+}
+#fieldinput{
+    width: 500px;
+    text-align: center;
+    background-color: rgb(40, 90, 105);
+    border-width: 5px;
+    border:none;
+    color: #ffffff;
+}
+
+#fieldinfo{
+    width: 500px;
+    text-align: left;
+    background-color: rgb(40, 90, 105);
+    border-width: 5px;
+    color: #ffffff;
+    border:none;
+}
+form{
+    margin-left: 400px;
+}
+
+label{
+    font-size: 20px;
+}
+
+legend{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#info{
+    font-size: larger;
+}
+
+button{
+    width: 100px;
+    background-color: rgb(64, 146, 172);
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    width: 120px;
+    height: 30px;
+    background-color: rgb(64, 146, 172);
+    transition: 0.2s;
+}
